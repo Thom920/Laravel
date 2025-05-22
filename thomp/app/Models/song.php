@@ -11,7 +11,7 @@ class song extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'songs';
+
 
     protected $guarded = [];
 

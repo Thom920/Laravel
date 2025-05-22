@@ -14,21 +14,32 @@ Route::get('/', function () {
 });
 
 Route::get("/home", [
-    HomeController::class, 'show'
+    HomeController::class,
+    'show'
 ])->name('home');
 
 Route::get("/library", [
-    LibraryController::class, 'show'
+    LibraryController::class,
+    'show'
 ])->name('library');
 
 Route::get("/songs", [
-    SongController::class, 'show'
+    SongController::class,
+    'show'
 ])->name('songs');
 
 Route::get("/form", [
-    FormController::class, 'show'
+    FormController::class,
+    'show'
 ])->name('form');
 
-Route::post('/form', 
-    [SongController::class, 'store'
-])->name('form.submit');
+Route::post(
+    '/form',
+    [
+        SongController::class,
+        'store'
+    ]
+)->name('form.submit');
+
+// web.php
+Route::delete('/songs/{song}', [SongController::class, 'delete'])->name('songs.delete');

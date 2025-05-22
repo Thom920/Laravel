@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\song;
 
 class LibraryController extends Controller
 {
     public function show()
     {
-        return view('library');
+
+        $Songs = song::all();
+
+        return view('library', [
+            'songs' => $Songs
+        ]);
     }
 }

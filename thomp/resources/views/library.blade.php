@@ -1,103 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    /* Algemene stijlen */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
+<x-master />
+@foreach ($songs as $song)
+@if ($loop->first)
+This is the first iteration.
+@endif
 
-/* Navigatiemenu */
-nav {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-}
+@if ($loop->last)
+This is the last iteration.
+@endif
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
+<p>This is song {{ $song->id }}</p>
+<p>This is song {{ $song->song_name }}</p>
+<p>This is song {{ $song->author }}</p>
+<p>This is song {{ $song->release_year }}</p>
+<p>This is song {{ $song->created_at }}</p>
+<p>This is song {{ $song->updated_at }}</p>
 
-nav ul li {
-    margin-right: 1.5rem;
-}
+<form method="POST" action="{{ route('songs.delete', $song->id) }}">
+    @csrf
+    @method('DELETE')
+    <button type="submit">Verwijder</button>
+</form>
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
 
-nav ul li a:hover {
-    color: #ffd700;
-}
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
 
-/* Koptekst */
-h1 {
-    text-align: center;
-    margin-top: 2rem;
-    color: #333;
-}
 
-/* Formulier */
-form {
-    max-width: 600px;
-    margin: 2rem auto;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-form input,
-form textarea,
-form button {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-form button {
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-form button:hover {
-    background-color: #555;
-}
-
-</style>
-<body>
-<nav>
-        <ul>
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('library') }}">library</a></li>
-            <li><a href="{{ route('songs') }}">songs</a></li>
-            <li><a href="{{ route('form') }}">form</a></li>
-
-        </ul>
-    </nav>
-    <h1>library</h1>
-</body>
-</html>
+@endforeach

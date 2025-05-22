@@ -23,4 +23,15 @@ class SongController extends Controller
         Song::create($validatedData);
         return redirect()->route('form')->with('success', 'Form submitted successfully!');
     }
+
+    public function delete(Song $song)
+    {
+        $song->delete();
+        // return redirect()->route('library')->with('success', 'Song deleted successfully!');
+        return redirect()->route('library')->with('success', 'Song deleted successfully!');
+    }
+    public function showUpdateForm($id)
+    {
+        
+    }
 }
