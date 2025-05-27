@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class song extends Model
 {
+    use HasFactory;
         /**
      * The table associated with the model.
      *
@@ -20,4 +22,7 @@ class song extends Model
     //     'author',
     //     'release_year'
     // ];
+
+
+
 }

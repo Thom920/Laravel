@@ -43,3 +43,13 @@ Route::post(
 
 // web.php
 Route::delete('/songs/{song}', [SongController::class, 'delete'])->name('songs.delete');
+
+Route::get('/song/update/{id}', [
+    SongController::class,
+    'showUpdateForm'
+])->name('songs.update');
+
+Route::put('/song/update/{id}' , [
+    SongController::class,
+    'update'
+])->name('update.song');

@@ -81,6 +81,11 @@ form button:hover {
     background-color: #555;
 }
 
+a{
+    text-decoration: none;
+    color: white;
+}
+
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,7 +101,6 @@ form button:hover {
             <li><a href="{{ route('library') }}">library</a></li>
             <li><a href="{{ route('songs') }}">songs</a></li>
             <li><a href="{{ route('form') }}">form</a></li>
-
         </ul>
     </nav>
 
