@@ -17,7 +17,7 @@ class SongController extends Controller
         $validatedData = $request->validate([
             'song_name' => 'required|string|min:3|max:32',
             'author' => 'required|string|min:6|max:32',
-            'release_year' => 'required|integer',
+    'release_year' => 'required|integer|between:1500,2025',    
         ]);
 
         Song::create($validatedData);
@@ -45,8 +45,8 @@ public function update(Request $request, $id)
     $validatedData = $request->validate([
         'song_name' => 'required|string|min:3|max:32',
         'author' => 'required|string|min:6|max:32',
-        'release_year' => 'required|integer',
-    ]);
+    'release_year' => 'required|integer|between:1500,2025',    
+]);
 
     // 2. Zoek de song
     $song = Song::find($id);

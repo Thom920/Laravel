@@ -99,7 +99,6 @@ a{
         <ul>
             <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="{{ route('library') }}">library</a></li>
-            <li><a href="{{ route('songs') }}">songs</a></li>
             <li><a href="{{ route('form') }}">form</a></li>
         </ul>
     </nav>

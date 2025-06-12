@@ -49,7 +49,7 @@ Route::get('/song/update/{id}', [
     'showUpdateForm'
 ])->name('songs.update');
 
-Route::put('/song/update/{id}' , [
+Route::put('/song/update/{id}', [
     SongController::class,
     'update'
 ])->name('update.song');
